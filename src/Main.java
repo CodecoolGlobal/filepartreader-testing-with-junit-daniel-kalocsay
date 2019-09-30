@@ -14,5 +14,11 @@ public class Main {
         String limitedContent = filePartReader.readLines();
         System.out.println(limitedContent);
 
+        FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(filePartReader);
+
+        System.out.println(fileWordAnalyzer.getWordsInAlphabeticalOrder());
+
+        System.out.println(fileWordAnalyzer.getWordsContainingSubstring("e"));
+
     }
 }
