@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -16,11 +17,13 @@ public class Main {
 
         FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(filePartReader);
 
-        System.out.println(fileWordAnalyzer.getWordsInAlphabeticalOrder());
+        List alphabetical = fileWordAnalyzer.getWordsInAlphabeticalOrder();
+        List wordsWithSubstrings = fileWordAnalyzer.getWordsContainingSubstring("e");
+        List palindromes = fileWordAnalyzer.getPalindromes();
 
-        System.out.println(fileWordAnalyzer.getWordsContainingSubstring("e"));
-
-        System.out.println(fileWordAnalyzer.getPalindromes());
+        System.out.println(alphabetical);
+        System.out.println(wordsWithSubstrings);
+        System.out.println(palindromes);
 
     }
 }

@@ -34,7 +34,7 @@ public class FileWordAnalyzer {
         List<String> results = new ArrayList<>();
 
         for (String word : allWords) {
-            if (checkIfPalindrome(word)) results.add(word);
+            if (isIfPalindrome(word)) results.add(word);
         }
 
         return results;
@@ -44,7 +44,7 @@ public class FileWordAnalyzer {
         return word.contains(substring);
     }
 
-    private boolean checkIfPalindrome(String word) {
+    private boolean isIfPalindrome(String word) {
         if (word.length() == 1) return false;
 
         StringBuilder reverser = new StringBuilder(word);
