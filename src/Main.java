@@ -20,5 +20,7 @@ public class Main {
 
         System.out.println(fileWordAnalyzer.getWordsContainingSubstring("e"));
 
+        System.out.println(fileWordAnalyzer.getPalindromes());
+
     }
 }
