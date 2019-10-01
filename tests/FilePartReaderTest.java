@@ -21,7 +21,7 @@ class FilePartReaderTest {
 
     @Test
     // public void testFromLineIsNotOver0
-    public void Should_ThrowException_IfFromLineIsUnder0() {
+    public void Should_ThrowException_IfFromLineIsNotOver0() {
         FilePartReader filePartReader = new FilePartReader();
 
         assertThrows(IllegalArgumentException.class, () -> {

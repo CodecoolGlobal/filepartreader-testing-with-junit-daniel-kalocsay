@@ -24,7 +24,7 @@ public class FileWordAnalyzer {
         List<String> results = new ArrayList<>();
 
         for (String word : allWords) {
-            if (containsSubstring(word, substring)) results.add(word);
+            if (word.contains(substring)) results.add(word);
         }
 
         return results;
@@ -34,17 +34,13 @@ public class FileWordAnalyzer {
         List<String> results = new ArrayList<>();
 
         for (String word : allWords) {
-            if (isIfPalindrome(word)) results.add(word);
+            if (isPalindrome(word)) results.add(word);
         }
 
         return results;
     }
 
-    private boolean containsSubstring(String word, String substring) {
-        return word.contains(substring);
-    }
-
-    private boolean isIfPalindrome(String word) {
+    private boolean isPalindrome(String word) {
         if (word.length() == 1) return false;
 
         StringBuilder reverser = new StringBuilder(word);

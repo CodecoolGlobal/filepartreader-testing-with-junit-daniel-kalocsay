@@ -18,7 +18,7 @@ public class Main {
         FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(filePartReader);
 
         List alphabetical = fileWordAnalyzer.getWordsInAlphabeticalOrder();
-        List wordsWithSubstrings = fileWordAnalyzer.getWordsContainingSubstring("e");
+        List wordsWithSubstrings = fileWordAnalyzer.getWordsContainingSubstring("in");
         List palindromes = fileWordAnalyzer.getPalindromes();
 
         System.out.println(alphabetical);
