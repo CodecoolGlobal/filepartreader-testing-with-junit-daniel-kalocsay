@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class FilePartReader {
     private String filePath;
@@ -34,26 +38,14 @@ public class FilePartReader {
 
     public String readLines() throws IOException {
 
-        // am I supposed to do it this way???
-//        for (String line : this.read().split("\n")) {
-//            System.out.println(line);
-//        }
-
-
-        FileReader fileReader = new FileReader(filePath);
-        BufferedReader br = new BufferedReader(fileReader);
-
+        String[] allLines =this.read().split("\n");
         StringBuilder contents = new StringBuilder();
 
-        for (int i = fromLine; i <= toLine; i++) {
-            String currentLine = br.readLine();
-
-            if (currentLine == null) break;
-            contents.append(currentLine).append("\n");
-
+        for (int lineNum = fromLine; lineNum <= toLine; lineNum++) {
+            if (fromLine <= lineNum) {
+                contents.append(allLines[lineNum-1]).append("\n");
+            }
         }
-
-        br.close();
 
         return contents.toString();
     }
