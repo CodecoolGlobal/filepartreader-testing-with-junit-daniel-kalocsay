@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.ListIterator;
+import java.util.*;
 
 public class FilePartReader {
     private String filePath;
@@ -31,21 +28,41 @@ public class FilePartReader {
         this.filePath = filePath;
     }
 
-    public String read() throws IOException {
-        byte[] encoded = Files.readAllBytes(Paths.get(filePath));
-        return new String(encoded, StandardCharsets.UTF_8);
+    public Map<Integer, String> read() throws IOException {
+//        byte[] encoded = Files.readAllBytes(Paths.get(filePath));
+//        return new String(encoded, StandardCharsets.UTF_8);
+
+        FileReader fileReader = new FileReader(filePath);
+        BufferedReader br = new BufferedReader(fileReader);
+
+        Map<Integer, String> allLines = new HashMap<>();
+
+        String currentLine = "";
+        int counter = 1;
+
+        do {
+            currentLine = br.readLine();
+            allLines.put(counter++, currentLine);
+        } while (currentLine != null);
+
+        return allLines;
     }
 
     public String readLines() throws IOException {
 
-        String[] allLines =this.read().split("\n");
         StringBuilder contents = new StringBuilder();
+        int index = fromLine;
+        Map<Integer, String> allLines = read();
 
-        for (int lineNum = fromLine; lineNum <= toLine; lineNum++) {
-            if (fromLine <= lineNum) {
-                contents.append(allLines[lineNum-1]).append("\n");
-            }
+        while (index <= toLine) {
+            contents.append(allLines.get(index++)).append("\n");
         }
+
+//        for (int lineNum = fromLine; lineNum <= toLine; lineNum++) {
+//            if (fromLine <= lineNum) {
+//                contents.append(allLines[lineNum-1]).append("\n");
+//            }
+//        }
 
         return contents.toString();
     }

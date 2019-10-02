@@ -10,7 +10,7 @@ public class FileWordAnalyzer {
 
     public FileWordAnalyzer(FilePartReader filePartReader) throws IOException {
         this.filePartReader = filePartReader;
-        allWords = Arrays.asList(filePartReader.read().split("\\s+"));
+//        allWords = Arrays.asList(filePartReader.read().split("\\s+"));
     }
 
     public List getWordsInAlphabeticalOrder() {
